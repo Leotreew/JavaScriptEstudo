@@ -1,0 +1,57 @@
+
+
+var botoesIncrementa = document.querySelectorAll(".btn-incrementa");
+var botoesDecrementa = document.querySelectorAll(".btn-decrementa");
+
+
+
+
+
+
+for( let botao of botoesIncrementa){
+    botao.addEventListener('click', incrementa);
+
+    function incrementa(){
+        var item = botao.closest('.item');
+        var input = item.querySelector('.quantidade');
+    
+        input.value++;
+        var preco = pegaPrecoItem(item);
+        adicionaAoTotal(preco);
+    
+        
+    
+    }
+    
+}
+
+for (let botao of botoesDecrementa){
+    botao.addEventListener('click', decrementa);
+
+    function decrementa(){
+        var item = botao.closest('.item');
+        var input = item.querySelector('.quantidade');
+        if(input.value > 0){
+            input.value--;
+            var preco = pegaPrecoItem(item);
+            adicionaAoTotal(-preco);
+    
+        }
+    }
+    
+}
+
+
+
+
+function pegaPrecoItem(item){
+    var precoItem = item.querySelector('.preco-item');
+    return Number(precoItem.textContent);
+
+}
+function adicionaAoTotal(preco){
+    var elementoTotal = document.querySelector('#total');
+    elementoTotal.textContent = preco + Number(elementoTotal.textContent);
+
+
+}
