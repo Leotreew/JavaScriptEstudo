@@ -41,6 +41,30 @@ for (let botao of botoesDecrementa){
     
 }
 
+document.get.background = 0;
+
+var formPedido = document.forms.pedido;
+
+formPedido.addEventListener('submit', function(event){
+
+    var contador = 0;
+
+    var inputs = formPedido.querySelectorAll('input.quantidade');
+
+    for(let input of inputs){
+        if(input.value > 0){
+            contador++;
+        }
+    }
+
+    if(contador == 0){
+        alert('Deve ter pelo menos uma pizza no pedido');
+        event.preventDefault();
+    }
+
+
+})
+
 
 
 
