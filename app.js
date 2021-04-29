@@ -41,7 +41,7 @@ for (let botao of botoesDecrementa){
     
 }
 
-document.get.background = 0;
+
 
 var formPedido = document.forms.pedido;
 
